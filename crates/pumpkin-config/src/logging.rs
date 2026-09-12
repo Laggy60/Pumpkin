@@ -19,6 +19,7 @@ pub struct LoggingConfig {
     /// Whether to enable coloured log output.
     pub color: bool,
     /// Whether to keep colours that log messages carry themselves.
+    /// Off by default here: the console stays readable, only the level is coloured.
     /// With `color` on and this off, only the level and timestamp are coloured.
     pub message_color: bool,
     /// Whether to include timestamps in log entries.
@@ -38,7 +39,7 @@ impl Default for LoggingConfig {
             thread_ids: false,
             target: false,
             color: true,
-            message_color: true,
+            message_color: false,
             timestamp: true,
             timestamp_format: "[hour]:[minute]:[second]".to_string(),
             file: "latest.log".to_string(),
