@@ -148,7 +148,7 @@ pub fn init_logger(advanced_config: &AdvancedConfiguration) {
         let fmt_layer = fmt::layer()
             .with_writer(std::sync::Mutex::new(logger))
             .with_ansi(advanced_config.logging.color)
-            .with_ansi_sanitization(false)
+            .with_ansi_sanitization(!advanced_config.logging.message_color)
             .with_target(advanced_config.logging.target)
             .with_thread_names(advanced_config.logging.threads)
             .with_thread_ids(advanced_config.logging.thread_ids);
